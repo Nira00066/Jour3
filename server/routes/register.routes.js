@@ -9,4 +9,5 @@ router.post("/", createUser);
 
 router.post("/forget-password", forgetPassword);
 
+router.get('/verify',) // mettre me contoller 
 module.exports = router;
