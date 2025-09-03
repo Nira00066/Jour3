@@ -38,7 +38,7 @@ const createUser = async (req, res) => {
       from: process.env.EMAIL_USER,
       to: email,
       subject: "Validation de votre compte",
-      html: `<p>Bonjour ${firstName},</p>
+      html: `<p>Bonjour ${prenom},</p>
              <p>Merci de vous être inscrit. Cliquez sur le lien pour valider votre compte :</p>
              <a href="http://localhost:3000/verify?token=${token}">Valider mon compte</a>`,
     };
