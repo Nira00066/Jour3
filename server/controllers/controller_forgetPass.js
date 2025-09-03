@@ -2,8 +2,10 @@ const db = require("./../db/config.db");
 const nodemailer = require("nodemailer");
 // c'est le module qui permet d'envoyer un mail pour le reset et bien d'autre
 const crypto = require("crypto"); // C'est le une module de node et utilie pour cree le token ou clée
-const forgetPasswordShema = require("./../model/forgetPasswordShema");
-export const forgetPassword = async (req, res) => {
+const forgetPasswordShema = require("./../models/forgetPasswordShema");
+
+
+const forgetPassword = async (req, res) => {
   const { error } = forgetPasswordShema.validate(req.boby);
   if (error) return res.status(400).jso, { message: error.details[0].message };
   //   si le validator ne passe pas error
@@ -33,3 +35,5 @@ export const forgetPassword = async (req, res) => {
     res.status(500).json({ message: "Erreur serveur" });
   }
 };
+
+module.exports = forgetPassword;

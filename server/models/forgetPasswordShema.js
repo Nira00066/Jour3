@@ -6,3 +6,4 @@ export const forgotPasswordSchema = Joi.object({
     'string.email': 'L\'email doit être valide'
   })
 });
+
