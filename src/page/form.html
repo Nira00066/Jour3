@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Postuler - MyJob MyDream</title>
+    <link rel="stylesheet" href="./../css/form.css" />
+    <link rel="stylesheet" href="./../css/home.css" />
+  </head>
+  <body>
+    <header>
+      <div class="title"><h1>MyJob MyDream</h1></div>
+      
+      <!-- Menu hamburger -->
+      <div class="menu-toggle" id="menu-toggle">
+        ☰
+      </div>
+
+      <nav id="nav">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="connexion.html">Connexion</a></li>
+        </ul>
+      </nav>
+
+      <a href="index.html" class="btn-connexion">Accueil</a>
+    </header>
+
+    <main>
+      <h2>Formulaire de Candidature</h2>
+      <form class="formulaire" action="#" method="post" enctype="multipart/form-data">
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required />
+
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="prenom" required />
+
+        <label for="email">Adresse Email :</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="cv">Téléverser votre CV / Photo :</label>
+        <input type="file" id="cv" name="cv" accept="image/*,.pdf" required />
+
+        <button type="submit">Postuler</button>
+      </form>
+    </main>
+
+    <footer>
+      <ul>
+        <li>Connexion</li>
+        <li>Inscription</li>
+        <li>Postulations</li>
+      </ul>
+      <h4>&copy; 2025 - Tous droits réservés</h4>
+    </footer>
+
+    <script>
+      // Script pour activer le menu hamburger
+      const menuToggle = document.getElementById("menu-toggle");
+      const nav = document.getElementById("nav");
+
+      menuToggle.addEventListener("click", () => {
+        nav.classList.toggle("active");
+        menuToggle.classList.toggle("open");
+      });
+    </script>
+  </body>
+</html>

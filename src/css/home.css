@@ -1,0 +1,164 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%; /* 🔥 nécessaire pour le flex */
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f6f9;
+  color: #333;
+  line-height: 1.6;
+
+  display: flex;          /* 🔥 */
+  flex-direction: column; /* 🔥 */
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg, #007bff, #00c3ff);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+header .title h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* Navigation */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  color: #ffde59;
+}
+
+/* Connexion button */
+.btn-connexion {
+  background: #ffde59;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-connexion:hover {
+  background: #ffc107;
+}
+
+/* Menu hamburger */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Main */
+main {
+  flex: 1;                 /* 🔥 occupe tout l'espace restant */
+  display: flex;           /* 🔥 pour centrer */
+  flex-direction: column;
+  justify-content: center; /* 🔥 centre verticalement */
+  align-items: center;     /* 🔥 centre horizontalement */
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+main h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #007bff;
+}
+
+main h3 {
+  font-size: 1.6rem;
+  margin-bottom: 0.7rem;
+}
+
+main h4 {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Footer */
+footer {
+  background: #222;
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+footer ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+footer ul li {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+footer ul li:hover {
+  color: #ffde59;
+}
+
+footer h4 {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: #007bff;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  nav.active {
+    display: block;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .btn-connexion {
+    display: none; /* caché sur mobile, accessible dans le menu */
+  }
+}

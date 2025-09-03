@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyJob MyDream</title>
+    <link rel="stylesheet" href="./src/css/home.css" />
+  </head>
+  <body>
+    <header>
+      <div class="title"><h1>MyJob MyDream</h1></div>
+
+      <div class="menu-toggle" id="menu-toggle">☰</div>
+
+      <nav id="nav">
+        <ul>
+          <li><a href="./src/page/form.html">Postuler</a></li>
+          <li><a href="./src/page/connexion.html">Connexion</a></li>
+        </ul>
+      </nav>
+
+      <a href="./src/page/connexion.html" class="btn-connexion">Connexion</a>
+    </header>
+
+    <main>
+      <h2>Bienvenue dans MyJob MyDream</h2>
+      <h3>TP BACK-END avec NodeMailer</h3>
+      <h4>Équipe de Philippe, Jean François, Nuno, Nina</h4>
+    </main>
+
+    <footer>
+      <ul>
+        <li>Connexion</li>
+        <li>Inscription</li>
+        <li>Postulations</li>
+      </ul>
+      <h4>&copy; 2025 - Tous droits réservés</h4>
+    </footer>
+
+    <script>
+      const menuToggle = document.getElementById("menu-toggle");
+      const nav = document.getElementById("nav");
+
+      menuToggle.addEventListener("click", () => {
+        nav.classList.toggle("active");
+        menuToggle.classList.toggle("open");
+      });
+    </script>
+  </body>
+</html>
