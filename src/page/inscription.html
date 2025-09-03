@@ -6,6 +6,7 @@
     <title>Inscription - MyJob MyDream</title>
     <link rel="stylesheet" href="./../css/form.css" />
     <link rel="stylesheet" href="./../css/home.css" />
+    <link rel="stylesheet" href="./../css/modal.css" />
   </head>
   <body>
     <header>
@@ -65,16 +66,17 @@
       </ul>
       <h4>&copy; 2025 - Tous droits réservés</h4>
     </footer>
-
-    <script>
-      // Script pour activer le menu hamburger
-      const menuToggle = document.getElementById("menu-toggle");
-      const nav = document.getElementById("nav");
-
-      menuToggle.addEventListener("click", () => {
-        nav.classList.toggle("active");
-        menuToggle.classList.toggle("open");
-      });
-    </script>
+    <div class="modal" id="successModal">
+      <div class="modal-content">
+        <h3>Compte créé avec succès !</h3>
+        <p>
+          Merci de valider votre compte via le lien envoyé à votre adresse
+          email.
+        </p>
+        <button id="closeModal">OK</button>
+      </div>
+    </div>
+    <!-- connection du fichier js au html -->
+    <script src="./../js/home.js"></script>
   </body>
 </html>
