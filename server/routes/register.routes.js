@@ -11,7 +11,7 @@ const { forgetPassword } = require("../controllers/controller_forgetPass.js");
 
 router.post("/", createUser);
 
-router.post("/forget-password", forgetPassword);
+router.post("/forgetPassword", forgetPassword);
 
 router.get("/verify", verifyUser); // mettre me contoller
 module.exports = router;
