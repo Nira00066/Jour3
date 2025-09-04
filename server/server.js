@@ -17,7 +17,8 @@ connectDB();
 
 // Routes
 app.use("/register", userRoutes);
-app.post("/forgotPassword", forgotPassword); // POST correct
+
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Serveur lancé sur le port ${PORT}`));

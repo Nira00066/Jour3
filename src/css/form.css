@@ -1,7 +1,87 @@
-/* Formulaire */
+/* Conteneur principal en row pour profil + formulaire */
+.profil-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 2rem;
+  flex-wrap: wrap; /* pour mobile */
+}
+
+/* Carte profil */
+.profil-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  flex: 1;
+  max-width: 400px;
+  text-align: center;
+}
+
+.profil-photo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.profil-info p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.profil-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.profil-actions button {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.profil-actions button:first-child {
+  background: #007bff;
+  color: white;
+}
+
+.profil-actions button:first-child:hover {
+  background: #0056b3;
+}
+
+.profil-actions .logout {
+  background: #dc3545;
+  color: white;
+}
+
+.profil-actions .logout:hover {
+  background: #a71d2a;
+}
+
+/* Formulaire profil */
+#editForm {
+  flex: 2;
+  max-width: 600px;
+}
+
+#editForm.hidden {
+  display: none;
+}
+
+/* Formulaire principal */
 .formulaire {
   max-width: 500px;
-  margin: 2rem auto;
+  margin: 0; /* centré via flex du parent */
   background: white;
   padding: 2rem;
   border-radius: 10px;
@@ -12,11 +92,13 @@
   gap: 1rem;
 }
 
+/* Labels */
 .formulaire label {
   font-weight: bold;
   text-align: left;
 }
 
+/* Champs */
 .formulaire input {
   padding: 0.7rem;
   border: 1px solid #ccc;
@@ -24,6 +106,7 @@
   font-size: 1rem;
 }
 
+/* Boutons */
 .formulaire button {
   background: #007bff;
   color: white;
@@ -38,4 +121,15 @@
 
 .formulaire button:hover {
   background: #0056b3;
+}
+
+/* Conteneur pour aligner les boutons côte à côte */
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.form-buttons button {
+  flex: 1;
 }

@@ -15,3 +15,5 @@ function validatorValidator(req, res, next) {
     return res.status(403).json({ message: "token invalid ou expiré" });
   }
 }
+
+module.exports = validatorValidator;

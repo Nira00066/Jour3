@@ -5,7 +5,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%; /* 🔥 nécessaire pour le flex */
 }
 
@@ -15,7 +16,7 @@ body {
   color: #333;
   line-height: 1.6;
 
-  display: flex;          /* 🔥 */
+  display: flex; /* 🔥 */
   flex-direction: column; /* 🔥 */
 }
 
@@ -78,11 +79,11 @@ nav ul li a:hover {
 
 /* Main */
 main {
-  flex: 1;                 /* 🔥 occupe tout l'espace restant */
-  display: flex;           /* 🔥 pour centrer */
+  flex: 1; /* 🔥 occupe tout l'espace restant */
+  display: flex; /* 🔥 pour centrer */
   flex-direction: column;
   justify-content: center; /* 🔥 centre verticalement */
-  align-items: center;     /* 🔥 centre horizontalement */
+  align-items: center; /* 🔥 centre horizontalement */
   padding: 3rem 2rem;
   text-align: center;
 }
@@ -131,6 +132,44 @@ footer ul li:hover {
 footer h4 {
   font-size: 0.9rem;
   color: #aaa;
+}
+/* Style global pour tous les boutons */
+button,
+.btn {
+  background: #007bff; /* Bleu principal */
+  color: #fff; /* Texte blanc */
+  border: none;
+  padding: 0.8rem 1.6rem; /* Taille agréable */
+  border-radius: 8px; /* Coins arrondis */
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Effet au survol */
+  display: inline-block;
+}
+
+/* Effet au survol */
+button:hover,
+.btn:hover {
+  background: #0056b3; /* Bleu foncé */
+  transform: translateY(-2px); /* Petit effet "lift" */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Effet quand on clique */
+button:active,
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Bouton spécial danger (déconnexion, suppression) */
+button.logout {
+  background: #dc3545;
+}
+
+button.logout:hover {
+  background: #b02a37;
 }
 
 /* RESPONSIVE DESIGN */
