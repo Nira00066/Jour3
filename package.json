@@ -5,6 +5,7 @@
     "express": "^5.1.0",
     "joi": "^18.0.1",
     "mongoose": "^8.18.0",
+    "multer": "^2.0.2",
     "nodemailer": "^7.0.6",
     "uuid": "^11.1.0"
   },
@@ -20,8 +21,11 @@
     "dev": "nodemon server/server.js"
   },
   "repository": {
+    "dotenv": "^17.2.2",
     "type": "git",
-    "url": "git+https://github.com/Nira00066/Jour3.git"
+    "url": "git+https://github.com/Nira00066/Jour3.git",
+    "multer": "^2.0.2",
+    "nodemailer": "^7.0.6"
   },
   "keywords": [],
   "author": "",
