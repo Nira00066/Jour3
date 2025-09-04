@@ -1,13 +1,16 @@
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
-  nom: { type: String, required: true },
-  prenom: { type: String, required: true },
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
+  nom: String,
+  prenom: String,
+  email: String,
+  password: String,
   status: { type: String, enum: ["pending", "active"], default: "pending" },
-  verificationToken: { type: String },
-  tokenExpires: { type: Date },
+  verificationToken: String,
+  tokenExpires: Date,
+
+  cvUrl: String,
+  candidatureValidee: { type: Boolean, default: false },
 });
 
 const User = mongoose.model("User", userSchema);

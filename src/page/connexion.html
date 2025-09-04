@@ -26,7 +26,7 @@
 
     <main>
       <h2>Connexion</h2>
-      <form class="formulaire" action="#" method="post">
+      <form class="formulaire" id="login-form">
         <label for="email">Adresse Email :</label>
         <input type="email" id="email" name="email" required />
 
@@ -36,7 +36,9 @@
         <button type="submit">Se connecter</button>
 
         <!-- Bouton mot de passe oublié -->
-        <a href="forgetpassword.html" class="forgot-password">Mot de passe oublié ?</a>
+        <a href="forgetpassword.html" class="forgot-password"
+          >Mot de passe oublié ?</a
+        >
 
         <!-- Lien inscription -->
         <p class="redirect">
@@ -56,13 +58,44 @@
     </footer>
 
     <script>
-      // Script pour activer le menu hamburger
+      // Menu hamburger
       const menuToggle = document.getElementById("menu-toggle");
       const nav = document.getElementById("nav");
 
       menuToggle.addEventListener("click", () => {
         nav.classList.toggle("active");
         menuToggle.classList.toggle("open");
+      });
+
+      // Script de connexion
+      const form = document.getElementById("login-form");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        try {
+          const response = await fetch("http://localhost:3000/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email, password }),
+          });
+
+          const result = await response.json();
+
+          if (!response.ok || !result.token) {
+            throw new Error(result.message || "Erreur de connexion");
+          }
+
+          localStorage.setItem("token", result.token);
+          window.location.href = "form.html";
+        } catch (err) {
+          alert(" " + err.message);
+        }
       });
     </script>
   </body>
