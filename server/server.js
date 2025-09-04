@@ -1,18 +1,23 @@
 const express = require("express");
+const cors = require("cors");
+const path = require("path");
 const app = express();
+
 require("dotenv").config();
 const connectDB = require("./db/config.db.js");
 const userRoutes = require("./routes/register.routes.js");
 const { forgotPassword } = require("./controllers/users.controller.js");
 
+// Middlewares
+app.use(cors()); // autorise toutes les origines (pour tests locaux)
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+
+// Connexion à la DB
 connectDB();
 
+// Routes
 app.use("/register", userRoutes);
-app.use("/forgotPassword", forgotPassword, (req, res) => {
-  res.sendFile(path.resolve("public/resetPassword.html"));
-});
+app.post("/forgotPassword", forgotPassword); // POST correct
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Serveur lancé sur le port ${PORT}`));

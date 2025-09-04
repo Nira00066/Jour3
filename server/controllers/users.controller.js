@@ -2,6 +2,7 @@ const User = require("../models/users.model.js");
 const { v4: uuidv4 } = require("uuid");
 const nodemailer = require("nodemailer");
 const forgotPasswordSchema = require("./../models/forgetPasswordShema.js");
+const crypto = require("crypto");
 
 const createUser = async (req, res) => {
   try {
@@ -113,17 +114,25 @@ const forgotPassword = async (req, res) => {
     user.resetPasswordExpires = resetTokenExpiry;
     await user.save();
 
-    const resetUrl = `http://localhost:3000/resetPassword?token=${resetToken}`;
+    const resetUrl = `http://127.0.0.1:5500/src/page/resetPassword.html?token=${resetToken}`;
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: email,
       subject: "Réinitialisation de votre mot de passe",
       html: `<p>Cliquez sur ce lien pour réinitialiser votre mot de passe :</p>
-             <a href="${resetUrl}">${resetUrl}</a>`,
+             <a href="${resetUrl}"}</a>`,
     };
+    console.log("User trouvé :", user.email);
+    console.log("ResetToken :", resetToken);
 
-    await transporter.sendMail(mailOptions);
+    try {
+      await transporter.sendMail(mailOptions);
+      console.log("Email envoyé !");
+    } catch (mailErr) {
+      console.error("Erreur Nodemailer :", mailErr);
+      throw mailErr;
+    }
 
     res.status(200).json({ message: "Email de réinitialisation envoyé !" });
   } catch (err) {
