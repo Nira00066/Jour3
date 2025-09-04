@@ -4,12 +4,11 @@ const router = express.Router();
 
 const { createUser } = require("../controllers/users.controller.js");
 
+
 router.post("/", createUser);
 
-// Validation middleware
-router.post("/forgetPassword", forgotPassword);
 
+router.post("/register", createUser);
 
-router.get("/verify", verifyUser);
 
 module.exports = router;

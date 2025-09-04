@@ -124,5 +124,4 @@ const forgotPassword = async (req, res) => {
 module.exports = {
   createUser,
   verifyUser,
-  forgotPassword
-};
+  };
