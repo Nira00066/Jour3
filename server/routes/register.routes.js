@@ -2,14 +2,8 @@
 const express = require("express");
 const router = express.Router();
 
-const {
-  createUser,
-  verifyUser,
-  forgotPassword
-} = require("../controllers/users.controller.js");
+const { createUser } = require("../controllers/users.controller.js");
 
-
-// POST /api/register
 router.post("/", createUser);
 
 // Validation middleware
