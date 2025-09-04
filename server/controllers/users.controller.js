@@ -80,6 +80,8 @@ const verifyUser = async (req, res) => {
     res.status(500).send("Erreur serveur.");
   }
 };
+
+
 const forgotPassword = async (req, res) => {
   const { error } = forgotPasswordSchema.validate(req.body);
 
@@ -89,6 +91,7 @@ const forgotPassword = async (req, res) => {
 
   try {
     const user = await User.findOne({ email });
+    
     if (!user) return res.status(404).json({ message: "Utilisateur non trouvé" });
 
     const resetToken = crypto.randomBytes(32).toString("hex");
