@@ -1,6 +1,7 @@
 const User = require("../models/users.model.js");
 const { v4: uuidv4 } = require("uuid");
 const nodemailer = require("nodemailer");
+const forgotPasswordSchema = require('./../models/forgetPasswordShema.js')
 
 const createUser = async (req, res) => {
   try {
@@ -81,6 +82,7 @@ const verifyUser = async (req, res) => {
 };
 const forgotPassword = async (req, res) => {
   const { error } = forgotPasswordSchema.validate(req.body);
+
   if (error) return res.status(400).json({ message: error.details[0].message });
 
   const { email } = req.body;

@@ -8,11 +8,6 @@ const {
   forgotPassword
 } = require("../controllers/users.controller.js");
 
-// const {
-//   forgotPasswordSchema,
-//   forgotPasswordController,
-//   for // <-- ajoute cette fonction dans ton controller
-// } = require("../controllers/controllerForgetPass.js");
 
 // POST /api/register
 router.post("/", createUser);
