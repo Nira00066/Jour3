@@ -1,7 +1,7 @@
 const User = require("../models/users.model.js");
 const { v4: uuidv4 } = require("uuid");
 const nodemailer = require("nodemailer");
-const forgotPasswordSchema = require('./../models/forgetPasswordShema.js')
+const forgotPasswordSchema = require("./../models/forgetPasswordShema.js");
 
 const createUser = async (req, res) => {
   try {
@@ -33,6 +33,8 @@ const createUser = async (req, res) => {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
+      debug: true, // affiche les logs
+      logger: true,
     });
 
     const mailOptions = {
@@ -81,7 +83,6 @@ const verifyUser = async (req, res) => {
   }
 };
 
-
 const forgotPassword = async (req, res) => {
   const { error } = forgotPasswordSchema.validate(req.body);
 
@@ -89,10 +90,21 @@ const forgotPassword = async (req, res) => {
 
   const { email } = req.body;
 
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
+    },
+    debug: true, // affiche les logs
+    logger: true,
+  });
+
   try {
     const user = await User.findOne({ email });
-    
-    if (!user) return res.status(404).json({ message: "Utilisateur non trouvé" });
+
+    if (!user)
+      return res.status(404).json({ message: "Utilisateur non trouvé" });
 
     const resetToken = crypto.randomBytes(32).toString("hex");
     const resetTokenExpiry = Date.now() + 3600000; // 1 heure
@@ -120,9 +132,8 @@ const forgotPassword = async (req, res) => {
   }
 };
 
-
 module.exports = {
   createUser,
   verifyUser,
-  forgotPassword
+  forgotPassword,
 };
